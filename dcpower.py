@@ -16,7 +16,7 @@ def some_func(dc_session):
             measurements = dc_session.fetch_multiple(count=summary_samples, timeout=1.0) # Возврат измерений из буфера
             samples += len(measurements) # Счетчик измерений
             for i in range(len(measurements)):
-                print("Channel: " + dc_session.get_channel_name(1),"№ " + str(i+1),"Voltage = " + str(measurements[i].voltage)+ " V ","Current = " + str(measurements[i].current)+" A ")
+                print("Channel: " + dc_session.get_channel_name(1),"№: " + str(i+1),"Voltage = " + str(measurements[i].voltage)+ " V ","Current = " + str(measurements[i].current)+" A ")
 
 
 with nidcpower.Session(resource_name='PXI1Slot3', channels=0, reset=True, options={'simulate': False}) as dc_session:
@@ -38,6 +38,6 @@ with nidcpower.Session(resource_name='PXI1Slot3', channels=0, reset=True, option
             measurements = dc_session.fetch_multiple(count=summary_samples, timeout=1.0) # Возврат измерений из буфера
             samples += len(measurements) # Счетчик измерений
             for i in range(len(measurements)):
-                print("Channel: " + dc_session.get_channel_name(1), "№ " + str(i+1),"Voltage = " + str(measurements[i].voltage)+ " V ","Current = " + str(measurements[i].current)+" A ")
+                print("Channel: " + dc_session.get_channel_name(1), "№: " + str(i+1),"Voltage = " + str(measurements[i].voltage)+ " V ","Current = " + str(measurements[i].current)+" A ")
     dc_session.reset()
     subsession.reset()
